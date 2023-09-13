@@ -1,4 +1,4 @@
-# Modern C, C++ Coding Convention with Object-Oriented(Modular) Programming and Data-Oriented Programming
+# Modern C and C++ Coding Convention
 
 Written for projects `Dasae Console Engine` and `Dasae Headers`
 
