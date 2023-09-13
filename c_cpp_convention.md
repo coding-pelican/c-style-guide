@@ -1,6 +1,6 @@
 # Modern C, C++ Coding Convention with Object-Oriented(Modular) Programming and Data-Oriented Programming
 
-Written for projects `Dasae Console Engine` and `Dasae Headers`
+Written for projects Dasae Console Engine and Dasae Headers
 
 ## Table of Contents
 
@@ -23,7 +23,11 @@ Written for projects `Dasae Console Engine` and `Dasae Headers`
     - [Data-Oriented Macros](#data-oriented-macros)
     - [Data-Oriented Header File Structure](#data-oriented-header-file-structure)
     - [Data-Oriented Programming Example](#data-oriented-programming-example)
-  - [Code Layout](#code-layout)
+  - [Code Layout Guidelines](#code-layout-guidelines)
+    - [1. Indentation](#1-indentation)
+    - [2. Spacing](#2-spacing)
+    - [3. Brace Placement](#3-brace-placement)
+  - [Clang Format Configuration](#clang-format-configuration)
 
 ---
 
@@ -487,10 +491,84 @@ void Module_QueryData(const struct ModuleData* data, int query);
 #endif // MODULE_H
 ```
 
-## Code Layout
+## Code Layout Guidelines
 
-- Use consistent indentation (e.g., 4 spaces or tabs).
-- Place spaces around operators and after commas.
-- Follow the One True Brace Style (OTBS) or Allman style for brace placement.
+### 1. Indentation
 
-This convention extends the existing one to incorporate an object-oriented structure in C. It defines rules for naming classes/objects, methods, properties, and the organization of header files for object-oriented C programming with a focus on modularization.
+- **Consistency:** Regardless of whether you use spaces or tabs for indentation, it's crucial to be consistent throughout your codebase. Choose one method and stick to it.
+
+Example using 4 spaces for indentation:
+
+```c
+void ExampleFunction() {
+    if (condition) {
+        // Indented code block
+        DoSomething();
+    }
+}
+```
+
+### 2. Spacing
+
+- **Operators:** When using operators such as `+`, `-`, `*`, or `/`, place spaces around them to enhance code readability.
+
+Example:
+
+```c
+int result = a + b;
+float ratio = c / d;
+```
+
+- **Commas:** In function arguments, variable declarations, and array initializations, include spaces after commas.
+
+Example:
+
+```c
+void ExampleFunction(int arg1, int arg2, float arg3);
+int array[] = {1, 2, 3, 4};
+```
+
+### 3. Brace Placement
+
+- **Brace Styles:** Choose one of the common brace placement styles, such as the One True Brace Style (OTBS) or K&R style, and consistently apply it throughout your code.
+
+  - OTBS:
+
+    ```c
+    void ExampleFunction() {
+        if (condition) {
+            DoSomething();
+        } else {
+          ...
+        }
+    }
+    ```
+
+  - K&R Style:
+
+    ```c
+    void ExampleFunction() {
+        if (condition)
+            DoSomething1();
+        else
+            DoSomething2();
+    }
+    ```
+
+## Clang Format Configuration
+
+The provided Clang format configuration is a set of rules that automate code formatting according to the specified guidelines. It enforces consistent code style by automatically adjusting your code. Let's break down some of the key rules from the configuration:
+
+- **Indentation:** The `TabWidth` and `UseTab` settings control how tabs are used for indentation. In this configuration, `TabWidth` is set to 4 spaces, and `UseTab` is set to `Never`, which means spaces should be used for indentation.
+
+- **Brace Placement:** The configuration defines where braces should be placed, such as after control statements and function definitions. For example, `BraceWrapping` settings control the placement of braces after control statements like `if`, `for`, and `while`.
+
+- **Spacing:** Various settings control spacing around operators, braces, and other code elements. For instance, `SpaceBeforeAssignmentOperators` specifies whether there should be a space before assignment operators (`=`).
+
+- **Line Length:** The `ColumnLimit` setting controls the maximum line length. Setting it to `0` means there's no maximum limit, but you can adjust it to your desired line length.
+
+- **Other Stylistic Preferences:** The configuration covers a wide range of code formatting preferences, including how to format comments, template declarations, and more.
+
+To apply this Clang format configuration to your code, you'll typically use the Clang Format tool, which can automatically format your code according to the rules defined in the configuration file.
+
+By adhering to these code layout guidelines and using the provided Clang format configuration, your code will maintain a consistent and readable style, making it easier for both you and your team to understand and work with the codebase.
