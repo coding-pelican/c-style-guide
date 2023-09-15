@@ -377,11 +377,11 @@ int main() {
 1. Include Guards
 2. Includes
 3. Type Definitions (typedefs, aliases)
-4. Forward Declarations (classes, functions, templates)
+4. Enums
 5. Constants
-6. Macros and Macro Function Wrappers
-7. Structures
-8. Enums
+6. Forward Declarations (classes, functions, templates)
+7. Macros and Macro Function Wrappers
+8. Structures
 9. Function Declarations (methods and internal functions)
 10. Inline Functions
 11. Namespaces (C++)
@@ -391,11 +391,11 @@ int main() {
 - **Include Guards:** Ensure that the header file is included only once in a translation unit.
 - **Includes:** Include necessary header files for dependencies.
 - **Type Definitions:** Define type aliases and typedefs.
-- **Forward Declarations:** Declare classes, functions, or templates that are used but not defined in this header.
+- **Enums:** Declare enumeration types.
 - **Constants:** Declare constants or global constant variables.
+- **Forward Declarations:** Declare classes, functions, or templates that are used but not defined in this header.
 - **Macros and Macro Function Wrappers:** Define macros and Macro function wrappers that are used throughout the header or are meant to be included by other source files.
 - **Structures:** Declare structs, classes, or objects.
-- **Enums:** Declare enumeration types.
 - **Function Declarations:** Declare functions, methods, or constructors.
 - **Inline Functions:** Define small, performance-critical functions that are suitable for inlining.
 - **Namespaces (C++):** Define namespaces for encapsulation (C++ specific).
