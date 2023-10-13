@@ -55,9 +55,9 @@ Written for projects Dasae Console Engine and Dasae Headers
   - **Global Functions:** `PascalCase`
   - **Structure Methods:** `PascalCase`
 
-- **Enums and Enum Members**
-  - **Enums:** `ePascalCase`
-  - **Enum Members:** `ALL_CAPS`
+- **Enumerations and Enumerators**
+  - **Enumerations:** `ePascalCase`
+  - **Enumerators:** `ALL_CAPS`
 
 - **Structures and Types**
   - **Classes/Objects:** `PascalCase`
@@ -102,7 +102,7 @@ void PascalCaseGlobalFunction() {
     std::cout << "Global Function" << std::endl;
 }
 
-// Enums and Enum Members
+// Enumerations and Enumerators
 enum ePascalCaseEnum {
     ENUM_VALUE_ONE,
     ENUM_VALUE_TWO
@@ -163,7 +163,7 @@ int main() {
     module.MethodName();
     PascalCaseGlobalFunction();
 
-    // Enums and Enum Members
+    // Enumerations and Enumerators
     ePascalCaseEnum enumValue = ENUM_VALUE_ONE;
     eScopedEnum scopedEnumValue = eScopedEnum::SCOPED_ENUM_VALUE_TWO;
 
@@ -196,9 +196,9 @@ int main() {
 - **Module Naming:**
   - **Module Structure (Class/Object):** `Module`
   - **Module Members:** noun/adj (camelCase)
-  - **Enums:** `eModule[Noun/Adj]`
-  - **Enum Type:** `Module[Noun/Adj]`
-  - **Enum Members:** `MODULE_ENUMERATOR`
+  - **Enums Type:** `Module[Noun/Adj]`
+  - **Enumerations:** `eModule[Noun/Adj]`
+  - **Enumerators:** `MODULE_ENUMERATOR`
 
 - **Function Naming:**
   - **External Functions (public methods):**
