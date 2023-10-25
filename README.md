@@ -555,7 +555,7 @@ int array[] = {1, 2, 3, 4};
     }
     ```
 
-## Clang Format Configuration
+## Clang Format [Configuration](https://clang-format-configurator.site/)
 
 The provided Clang format configuration is a set of rules that automate code formatting according to the specified guidelines. It enforces consistent code style by automatically adjusting your code. Let's break down some of the key rules from the configuration:
 
