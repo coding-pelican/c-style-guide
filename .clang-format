@@ -72,7 +72,7 @@ BraceWrapping:
 BreakAfterAttributes: Never
 BreakAfterJavaFieldAnnotations: false
 BreakArrays: true
-BreakBeforeBinaryOperators: None
+BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Attach
 BreakBeforeConceptDeclarations: Always
 BreakBeforeInlineASMColon: OnlyMultiline
