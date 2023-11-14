@@ -109,8 +109,8 @@ enum ePascalCaseEnum {
 };
 
 enum class eScopedEnum : int {
-    SCOPED_ENUM_VALUE_ONE,
-    SCOPED_ENUM_VALUE_TWO
+    kValueOne,
+    kValueWwo
 };
 
 // Structures and Types
