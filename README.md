@@ -1,4 +1,6 @@
-﻿# C Style
+﻿# C Style Guide
+
+Still a work in progress.
 
 ## Layout & Order of Groupings
 
