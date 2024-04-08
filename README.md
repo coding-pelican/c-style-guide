@@ -1,4 +1,4 @@
-# Modern C and C++ Coding Convention
+﻿# Modern C and C++ Coding Convention
 
 Written for projects Dasae Console Engine and Dasae Headers
 
