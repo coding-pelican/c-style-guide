@@ -1,5 +1,7 @@
 ﻿# C Style Guide
 
+Guidelines for modern C coding, including style conventions and layout organization.
+
 Still a work in progress.
 
 ## Layout & Order of Groupings
