@@ -166,7 +166,7 @@
       "",
       "${TM_SELECTED_TEXT}$0",
       "",
-      "#endif // !${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}\n"
+      "#endif // !${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}"
     ],
     "description": "snippet for header include guard"
   }, */
@@ -178,18 +178,27 @@
       "",
       "${TM_SELECTED_TEXT}$0",
       "",
-      "#endif // !${1:${TM_FILENAME}}\n"
+      "#endif // !${1:${TM_FILENAME}}"
     ],
     "description": "snippet for header include guard"
   },
   "#unused": {
     "prefix": "#unused",
     "body": [
-      "#ifndef UNUSED_CODE",
+      "#ifdef UNUSED_CODE",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // !$UNUSED_CODE\n"
+      "#endif // $UNUSED_CODE"
     ],
     "description": "snippet for #ifndef"
+  },
+  "#ifdef": {
+    "prefix": "#ifdef",
+    "body": [
+      "#ifdef $1",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // $1"
+    ],
+    "description": "snippet for #ifdef"
   },
   "#ifndef": {
     "prefix": "#ifndef",
@@ -200,21 +209,12 @@
     ],
     "description": "snippet for #ifndef"
   },
-  "#ifdef": {
-    "prefix": "#ifdef",
-    "body": [
-      "#ifdef $1",
-      "${TM_SELECTED_TEXT}$0",
-      "#endif // $1\n"
-    ],
-    "description": "snippet for #ifdef"
-  },
   "#ifdefined": {
     "prefix": "#ifdefined",
     "body": [
       "#if defined($1)",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // defined($1)\n"
+      "#endif // defined($1)"
     ],
     "description": "snippet for #ifdefined"
   },
@@ -232,7 +232,7 @@
     "body": [
       "#if $1",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // $1\n"
+      "#endif // $1"
     ],
     "description": "snippet for #if"
   },
@@ -491,7 +491,7 @@
       "",
       "// #region Private_Functions",
       "${18:// definitions}",
-      "// #endregion // Private_Functions\n"
+      "// #endregion // Private_Functions"
     ],
     "description": "snippet for #source"
   }

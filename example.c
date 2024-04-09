@@ -69,6 +69,7 @@ static int sCurrentBarCount = 0;
 
 // 8. Private function prototypes (declarations)
 static void TestPoint();
+static char const* ExampleType_ToStringType(ExampleType type);
 
 // 9. Public Data (definitions)
 int gBarCreatedCount   = 0; // Initialize global variable
@@ -119,9 +120,10 @@ int main() {
     ASSERT(gBarDestroyedCount == 0);
     ASSERT(sCurrentBarCount == 1);
 
+    char const* const typeName = ExampleType_ToStringType(bar->type);
     Bar_Destroy(&bar);
     if (!bar) {
-        printf("Bar object was successfully destroyed.\n");
+        printf("%s object was successfully destroyed.\n", typeName);
     }
     ASSERT(gBarCreatedCount == 1);
     ASSERT(gBarDestroyedCount == 1);
@@ -131,7 +133,8 @@ int main() {
 }
 
 // 11. Private functions (definitions)
-static void TestPoint() {
+void TestPoint() {
+#ifdef UNUSED_CODE
     // Point AddPoint
     {
         Point p = { .x = 1, .y = 2 };
@@ -184,6 +187,18 @@ static void TestPoint() {
         Point result = Point_Scale(p, s);
         ASSERT(result.x == -4);
         ASSERT(result.y == -6);
+    }
+#endif // UNUSED_CODE
+}
+
+char const* ExampleType_ToStringType(ExampleType type) {
+    switch (type) {
+    case eExampleType_Foo:
+        return kFooTypeName;
+    case eExampleType_Bar:
+        return kBarTypeName;
+    default:
+        return "Unknown";
     }
 }
 

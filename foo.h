@@ -25,6 +25,7 @@ struct Foo {
     int type;
     int value;
 };
+static char const* const kFooTypeName = "Foo";
 // #endregion Public_Types
 
 #ifdef __cplusplus
