@@ -19,15 +19,13 @@
 extern "C" {
 #endif // __cplusplus
 
-#pragma region Public types
-
+// #region Public_Types
 typedef struct Foo Foo;
 struct Foo {
     int type;
     int value;
 };
-
-#pragma endregion // Public types
+// #endregion Public_Types
 
 #ifdef __cplusplus
 }

@@ -1,4 +1,5 @@
 ﻿// clang-format off
+//
 // 1. Heading comment
 /**
  * @file example.c
@@ -98,11 +99,11 @@ Bar* Bar_Initialize(Bar* outBar, Foo foo, Point p) {
     return outBar;
 }
 
-void Bar_Destroy(Bar** outBar) {
-    ASSERT(outBar);
-    ASSERT(*outBar);
-    free(*outBar);
-    *outBar = NULL;
+void Bar_Destroy(Bar** outBarPtr) {
+    ASSERT(outBarPtr);
+    ASSERT(*outBarPtr);
+    free(*outBarPtr);
+    *outBarPtr = NULL;
 
     gBarDestroyedCount++;
     sCurrentBarCount--;
@@ -185,4 +186,5 @@ static void TestPoint() {
         ASSERT(result.y == -6);
     }
 }
+
 // clang-format on

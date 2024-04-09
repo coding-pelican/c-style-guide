@@ -1,0 +1,498 @@
+﻿{
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}\n"
+    ],
+    "description": "snippet for an if statement"
+  },
+  "else if": {
+    "prefix": "else if",
+    "body": [
+      "else if ($1) {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "snippet for else-if"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}\n"
+    ],
+    "description": "snippet for else"
+  },
+  "do": {
+    "prefix": "do",
+    "body": [
+      "do {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "} while(${1:0});\n"
+    ],
+    "description": "snippet for a do...while loop"
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while (${1:1}) {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}\n"
+    ],
+    "description": "snippet for a while loop"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (${1|int,size_t|} ${2} = ${3:0}; ${2} ${3:|<,>,<=,>=,==,!=|} ${4:length}; ${5:++,--}${2}) {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}\n"
+    ],
+    "description": "snippet for a for loop"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": [
+      "switch ($1:${TM_SELECTED_TEXT}) {",
+      "case $4:",
+      "\t$0",
+      "\tbreak;",
+      "\n",
+      "\n",
+      "default:",
+      "\t${2}${3:break}};",
+      "}\n"
+    ],
+    "description": "snippet for a switch statement"
+  },
+  "case": {
+    "prefix": "case",
+    "body": [
+      "case $1:",
+      "\t${TM_SELECTED_TEXT}$0",
+      "\tbreak;"
+    ],
+    "description": "snippet for case (...)"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": [
+      "enum e${1:EnumID} {",
+      "\t${2:e${1:EnumID}_None} = ${3:0},",
+      "\t${4:e${1:EnumID}_Item},",
+      "\t${5:k${1:EnumID}_Count}$0",
+      "};\n"
+    ],
+    "description": "snippet for an enum declaration"
+  },
+  "struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:StructID} {",
+      "\t${2:int} ${3:structMember};",
+      "\t${4:${TM_SELECTED_TEXT}}$0",
+      "};\n"
+    ],
+    "description": "snippet for an struct definition"
+  },
+  "func": {
+    "prefix": "func",
+    "body": [
+      "${1:void} ${2:FuncID}(${3:int}, ${4:arg}) {",
+      "\t${5:${TM_SELECTED_TEXT}}$0",
+      "}\n"
+    ],
+    "description": "snippet for a function definition"
+  },
+  "typedef": {
+    "prefix": "typedef",
+    "body": [
+      "typedef ${1:char} ${2:Byte};$0"
+    ],
+    "description": "snippet for a typedef"
+  },
+  "typedefenum": {
+    "prefix": "typedefenum",
+    "body": [
+      "typedef enum e${1:EnumAlias} {",
+      "\t${2:e${1:EnumAlias}_None} = ${3:0},",
+      "\t${4:e${1:EnumAlias}_Item},",
+      "\t${5:k${1:EnumAlias}_Count}$0",
+      "} ${1:EnumAlias};\n"
+    ],
+    "description": "snippet for a typedef enum"
+  },
+  "typedefstruct": {
+    "prefix": "typedefstruct",
+    "body": [
+      "typedef struct ${1:StructAlias} ${1:StructAlias};",
+      "struct ${1:StructAlias} {",
+      "\t${2:int} ${3:structMember};",
+      "\t${4:${TM_SELECTED_TEXT}}$0",
+      "};\n"
+    ],
+    "description": "snippet for a typedef struct"
+  },
+  "typedeffunc": {
+    "prefix": "typedeffuncptr",
+    "body": [
+      "typedef ${1:int} (*${2:FuncAlias})(${3:int}, ${4:int});$0"
+    ],
+    "description": "snippet for a typedef function pointer"
+  },
+  "#extern": {
+    "prefix": "#extern",
+    "body": [
+      "#if defined(__cplusplus)",
+      "extern \"C\" {",
+      "#endif // defined(__cplusplus)",
+      "",
+      "${TM_SELECTED_TEXT}$0",
+      "",
+      "#if defined(__cplusplus)",
+      "}",
+      "#endif // defined(__cplusplus)\n"
+    ],
+    "description": "snippet for C language linking"
+  },
+  /* "#guard": {
+    "prefix": "#guard",
+    "body": [
+      "#ifndef ${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}",
+      "#define ${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}",
+      "",
+      "${TM_SELECTED_TEXT}$0",
+      "",
+      "#endif // !${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}\n"
+    ],
+    "description": "snippet for header include guard"
+  }, */
+  "#guard": {
+    "prefix": "#guard",
+    "body": [
+      "#ifndef ${1:${TM_FILENAME}}",
+      "#define ${1:${TM_FILENAME}}",
+      "",
+      "${TM_SELECTED_TEXT}$0",
+      "",
+      "#endif // !${1:${TM_FILENAME}}\n"
+    ],
+    "description": "snippet for header include guard"
+  },
+  "#unused": {
+    "prefix": "#unused",
+    "body": [
+      "#ifndef UNUSED_CODE",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // !$UNUSED_CODE\n"
+    ],
+    "description": "snippet for #ifndef"
+  },
+  "#ifndef": {
+    "prefix": "#ifndef",
+    "body": [
+      "#ifndef $1",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // !$1\n"
+    ],
+    "description": "snippet for #ifndef"
+  },
+  "#ifdef": {
+    "prefix": "#ifdef",
+    "body": [
+      "#ifdef $1",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // $1\n"
+    ],
+    "description": "snippet for #ifdef"
+  },
+  "#ifdefined": {
+    "prefix": "#ifdefined",
+    "body": [
+      "#if defined($1)",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // defined($1)\n"
+    ],
+    "description": "snippet for #ifdefined"
+  },
+  "#ifndefined": {
+    "prefix": "#ifndefined",
+    "body": [
+      "#if !defined($1)",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // !defined($1)\n"
+    ],
+    "description": "snippet for #ifndefined"
+  },
+  "#if": {
+    "prefix": "#if",
+    "body": [
+      "#if $1",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // $1\n"
+    ],
+    "description": "snippet for #if"
+  },
+  "#ifn": {
+    "prefix": "#ifn",
+    "body": [
+      "#if !$1",
+      "${TM_SELECTED_TEXT}$0",
+      "#endif // !$1\n"
+    ],
+    "description": "snippet for #ifn"
+  },
+  "#inc<": {
+    "prefix": "#inc<",
+    "body": [
+      "#include <${1:${TM_SELECTED_TEXT}}$0>"
+    ],
+    "description": "snippet for #include<...>"
+  },
+  "#inc\"": {
+    "prefix": "#inc\"",
+    "body": [
+      "#include \"${1:${TM_SELECTED_TEXT}}$0\""
+    ],
+    "description": "snippet for #include\"...\""
+  },
+  "#def": {
+    "prefix": "#def",
+    "body": [
+      "#define $1 $2",
+      "$0"
+    ],
+    "description": "snippet for #define"
+  },
+  "//cfoff": {
+    "prefix": "//cfoff",
+    "body": [
+      "// clang-format off",
+      "${TM_SELECTED_TEXT}$0",
+      "// clang-format on"
+    ],
+    "description": "clang-format off ... on"
+  },
+  "//nolt": {
+    "prefix": "//nolt",
+    "body": [
+      "// NOLINTBEGIN${1:(${2:check-name})}",
+      "${TM_SELECTED_TEXT}$0",
+      "// NOLINTEND${1:(${2:check-name})}"
+    ],
+    "description": "NOLINT(...) BEGIN ... END"
+  },
+  "//cmtbox": {
+    "prefix": "//cmtbox",
+    "body": [
+      "/*********************************",
+      " * ${TM_SELECTED_TEXT}$1",
+      " *********************************/",
+      "$0"
+    ],
+    "description": "cmtbox/**...**/"
+  },
+  "//cmtsep*": {
+    "prefix": "//cmtsep*",
+    "body": [
+      "/******** ${TM_SELECTED_TEXT}$1 ********/$0"
+    ],
+    "description": "cmtsep/**...**/"
+  },
+  "//cmtsep-": {
+    "prefix": "//cmtsep-",
+    "body": [
+      "/*------- ${TM_SELECTED_TEXT}$1 -------*/$0"
+    ],
+    "description": "cmtsep/*-...-*/"
+  },
+  "//sep*": {
+    "prefix": "//sep*",
+    "body": [
+      "/*********************************/$0"
+    ],
+    "description": "sep/****/"
+  },
+  "//sep-": {
+    "prefix": "//sep-",
+    "body": [
+      "/*-------------------------------*/$0"
+    ],
+    "description": "sep/*--*/"
+  },
+  "#region": {
+    "prefix": "#region",
+    "body": [
+      "// #region $1",
+      "${TM_SELECTED_TEXT}$0",
+      "// #endregion // $1\n"
+    ],
+    "description": "snippet for #section"
+  },
+  "#section": {
+    "prefix": "#section",
+    "body": [
+      "/******** $1 ********/",
+      "// #region $2",
+      "",
+      "${TM_SELECTED_TEXT}",
+      "$0",
+      "// #endregion // $2",
+      "/*------- $1 -------*/\n"
+    ],
+    "description": "snippet for #section"
+  },
+  "#headeronly": {
+    "prefix": "#headeronly",
+    "body": [
+      "/*********************************",
+      " * $1",
+      " *********************************/",
+      "// #region $2",
+      "",
+      "${TM_SELECTED_TEXT}",
+      "$0",
+      "// #endregion // $2",
+      "/*-------------------------------*/\n"
+    ],
+    "description": "snippet for #headeronly"
+  },
+  "//heading": {
+    "prefix": "//heading",
+    "body": [
+      "/**",
+      " * @file ${TM_FILENAME}",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " *",
+      " * @brief $6",
+      " * @details $7",
+      " *",
+      " * @version ${8:0.1}",
+      " * @date ${9:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
+      " *",
+      " * @copyright ${10:'$'cprt|licn}",
+      " */\n"
+    ],
+    "description": "snippet for heading comment"
+  },
+  "#header": {
+    "prefix": "#header",
+    "body": [
+      "/**",
+      " * @file ${TM_FILENAME}",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " *",
+      " * @brief $6",
+      " * @details $7",
+      " *",
+      " * @version ${8:0.1}",
+      " * @date ${9:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
+      " *",
+      " * @copyright ${10:'$'cprt|licn}",
+      " */",
+      "",
+      "",
+      "#ifndef ${11:${TM_FILENAME}}",
+      "#define ${11:${TM_FILENAME}}",
+      "",
+      "#if defined(__cplusplus)",
+      "extern \"C\" {",
+      "#endif // defined(__cplusplus)",
+      "",
+      "$0",
+      "// #region Header_File_Inclusions",
+      "${12:// when NEEDED instead of Forward_Declarations}",
+      "// #endregion // Header_File_Inclusions",
+      "",
+      "// #region Pre-Processor_Definitions",
+      "$9",
+      "// #endregion // Pre-Processor_Definitions",
+      "",
+      "// #region Forward_Declarations",
+      "${13:// when NEEDED in this header file}",
+      "// #endregion // Forward_Declarations",
+      "",
+      "",
+      "// #region Public_Types",
+      "${14:// definitions: const, enum, struct, ...}",
+      "// #endregion // Public_Types",
+      "",
+      "// #region Public_Data",
+      "${15:// declarations: global, extern, static with extern}",
+      "// #endregion // Public_Data",
+      "",
+      "",
+      "// #region Inline_Functions",
+      "${16:// definitions}",
+      "// #endregion // Inline_Functions",
+      "",
+      "// #region Public_Function_Prototypes",
+      "${17:// declarations}",
+      "// #endregion // Public_Function_Prototypes",
+      "",
+      "",
+      "#ifdef defined(__cplusplus)",
+      "}",
+      "#endif // defined(__cplusplus)",
+      "",
+      "#endif // !${11:${TM_FILENAME}}\n"
+    ],
+    "description": "snippet for #header"
+  },
+  "#source": {
+    "prefix": "#source",
+    "body": [
+      "/**",
+      " * @file ${TM_FILENAME}",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " *",
+      " * @brief $6",
+      " * @details $7",
+      " *",
+      " * @version ${8:0.1}",
+      " * @date ${9:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
+      " *",
+      " * @copyright ${10:'$'cprt|licn}",
+      " */",
+      "",
+      "$0",
+      "// #region Header_File_Inclusions",
+      "${11:// only those that are NECESSARY}",
+      "// #endregion // Header_File_Inclusions",
+      "",
+      "// #region Pre-Processor_Definitions",
+      "$12",
+      "// #endregion // Pre-Processor_Definitions",
+      "",
+      "",
+      "// #region Private_Types",
+      "${13:// definitions: const, enum, struct, ...}",
+      "// #endregion // Private_Types",
+      "",
+      "// #region Private_Data",
+      "${14:// definitions}",
+      "// #endregion // Private_Data",
+      "",
+      "// #region Private_Function_Prototypes",
+      "${15:// declarations}",
+      "// #endregion // Private_Function_Prototypes",
+      "",
+      "",
+      "// #region Public_Data",
+      "${16:// definitions}",
+      "// #endregion // Public_Data",
+      "",
+      "// #region Public_Functions",
+      "${17:// definitions}",
+      "// #endregion // Public_Functions",
+      "",
+      "// #region Private_Functions",
+      "${18:// definitions}",
+      "// #endregion // Private_Functions\n"
+    ],
+    "description": "snippet for #source"
+  }
+}

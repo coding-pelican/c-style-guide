@@ -1,4 +1,5 @@
 ﻿// clang-format off
+
 /**
  * @file example.h
  * @author {YourName} ({your.email_address@where.com})
@@ -20,9 +21,9 @@
 #define EXAMPLE_H
 
 // 5-s. C language link (opening)
-#ifdef __cplusplus
+#if defined(__cplusplus)
 extern "C" {
-#endif // __cplusplus
+#endif // defined(__cplusplus)
 
 // 6. Header file inclusions (when NEEDED instead of forward declarations)
 #include <stdbool.h>
@@ -88,12 +89,12 @@ static inline Point Point_Scale(Point p, int s) {
 bool ProcessData(uint8_t const* refData, size_t size);
 Bar* Bar_Create();
 Bar* Bar_Initialize(Bar* outBar, Foo foo, Point p);
-void Bar_Destroy(Bar** outBar);
+void Bar_Destroy(Bar** outBarPtr);
 
 // 5-e. C language link (closing)
-#ifdef __cplusplus
+#if defined(__cplusplus)
 }
-#endif // __cplusplus
+#endif // defined(__cplusplus)
 
 // 4-e. Header file include guard (closing)
 #endif // !EXAMPLE_H
