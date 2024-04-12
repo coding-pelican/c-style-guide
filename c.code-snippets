@@ -279,11 +279,34 @@
   "//nolt": {
     "prefix": "//nolt",
     "body": [
+      "// NOLINT${1:(${2:check-name})$0"
+    ],
+    "description": "// NOLINT(...)"
+  },
+  "//noltn": {
+    "prefix": "//noltn",
+    "body": [
+      "// NOLINTNEXTLINE${1:(${2:check-name})$0"
+    ],
+    "description": "// NOLINTNEXTLINT(...)"
+  },
+  "//noltr": {
+    "prefix": "//noltr",
+    "body": [
       "// NOLINTBEGIN${1:(${2:check-name})}",
       "${TM_SELECTED_TEXT}$0",
       "// NOLINTEND${1:(${2:check-name})}"
     ],
-    "description": "NOLINT(...) BEGIN ... END"
+    "description": "// NOLINT(...) BEGIN ... END"
+  },
+  "#region": {
+    "prefix": "#region",
+    "body": [
+      "// #region $1",
+      "${TM_SELECTED_TEXT}$0",
+      "// #endregion // $1\n"
+    ],
+    "description": "snippet for #section"
   },
   "//cmtbox": {
     "prefix": "//cmtbox",
@@ -322,15 +345,6 @@
       "/*-------------------------------*/$0"
     ],
     "description": "sep/*--*/"
-  },
-  "#region": {
-    "prefix": "#region",
-    "body": [
-      "// #region $1",
-      "${TM_SELECTED_TEXT}$0",
-      "// #endregion // $1\n"
-    ],
-    "description": "snippet for #section"
   },
   "#section": {
     "prefix": "#section",
