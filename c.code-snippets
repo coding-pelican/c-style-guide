@@ -47,7 +47,7 @@
   "for": {
     "prefix": "for",
     "body": [
-      "for (${1|int,size_t|} ${2} = ${3:0}; ${2} ${3:|<,>,<=,>=,==,!=|} ${4:length}; ${5:++,--}${2}) {",
+      "for (${1:${2|int,size_t|} ${3:index} = ${4:0}}; ${5:$3 ${6|<,>,<=,>=,==,!=|} ${7:length}}; ${8:${9|++,--|}$3}) {",
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
@@ -101,8 +101,8 @@
   "func": {
     "prefix": "func",
     "body": [
-      "${1:void} ${2:FuncID}(${3:int}, ${4:arg}) {",
-      "\t${5:${TM_SELECTED_TEXT}}$0",
+      "${6:void} ${1:FuncID}(${2:${3:int} ${4:arg}$5}) {",
+      "\t${7:${TM_SELECTED_TEXT}}$0",
       "}\n"
     ],
     "description": "Inserts a function with return type, name, parameters, and body. Wrapables."
@@ -496,5 +496,16 @@
       "// #endregion // Private_Functions"
     ],
     "description": "Creates a C source file template with common sections. Wraps /.../."
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "int main(${1:${2|int const,int|} argc, ${3|char const*,char*|} argv[]}) {",
+      "\t$0",
+      "\t",
+      "\treturn 0;",
+      "}\n"
+    ],
+    "description": "Generates a main function declaration with command line arguments."
   }
 }

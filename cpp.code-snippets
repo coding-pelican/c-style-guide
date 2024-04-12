@@ -31,14 +31,14 @@
     "body": [
       "do {",
       "\t${TM_SELECTED_TEXT}$0",
-      "} while (${1:0});\n"
+      "} while (${1:false});\n"
     ],
     "description": "Inserts a do...while loop. Optionally wraps selected text in `do {} while ()`."
   },
   "while": {
     "prefix": "while",
     "body": [
-      "while (${1:1}) {",
+      "while (${1:true}) {",
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
@@ -47,7 +47,7 @@
   "for": {
     "prefix": "for",
     "body": [
-      "for (${1|int,size_t|} ${2} = ${3:0}; ${2} ${3:|<,>,<=,>=,==,!=|} ${4:length}; ${5:++,--}${2}) {",
+      "for (${1:${2|int,size_t,auto|} ${3:index} = ${4:0}}; ${5:$3 ${6|<,>,<=,>=,==,!=|} ${7:length}}; ${8:${9|++,--|}$3}) {",
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
@@ -101,8 +101,8 @@
   "func": {
     "prefix": "func",
     "body": [
-      "${1:void} ${2:FuncID}(${3:int}, ${4:arg}) {",
-      "\t${5:${TM_SELECTED_TEXT}}$0",
+      "${6:void} ${1:FuncID}(${2:${3:int} ${4:arg}$5}) {",
+      "\t${7:${TM_SELECTED_TEXT}}$0",
       "}\n"
     ],
     "description": "Inserts a function with return type, name, parameters, and body. Wrapables."
@@ -496,5 +496,68 @@
       "// #endregion // Private_Functions"
     ],
     "description": "Creates a C source file template with common sections. Wraps /.../."
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "int main(${1:${2|const int,int|} argc, ${3|const char*,char*|} argv[]}) {",
+      "\t$0",
+      "\t",
+      "\treturn 0;",
+      "}\n"
+    ],
+    "description": "Generates a main function declaration with command line arguments."
+  },
+  "namesp": {
+    "prefix": "namesp",
+    "body": [
+      "namespace $1 {",
+      "${TM_SELECTED_TEXT}$0",
+      "} // namespace $1"
+    ],
+    "description": "Wraps the selected code in a namespace block."
+  },
+  "usingn": {
+    "prefix": "usingn",
+    "body": [
+      "using namespace $0"
+    ],
+    "description": "Inserts a using namespace statement."
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": [
+      "for (${1|const auto&,auto&,auto|} $2 : $3) {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}\n"
+    ],
+    "description": "Inserts a range-based for loop. Optionally wraps selected text in loop."
+  },
+  "try": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${1:${TM_SELECTED_TEXT}}$2",
+      "} catch (const std::exception& $3) {",
+      "\t$0",
+      "}\n"
+    ],
+    "description": "Wraps the selected code in a try-catch block."
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class $1 ${2:: ${3:virtual} ${4|public,protected,private|} ${5:base}} {",
+      "\t${6:${TM_SELECTED_TEXT}}$0",
+      "};\n"
+    ],
+    "description": "Generates a class declaration with inheritance options."
+  },
+  "template": {
+    "prefix": "template",
+    "body": [
+      "template <typename ${1:T}$2>$0"
+    ],
+    "description": "Inserts a template declaration."
   }
 }
