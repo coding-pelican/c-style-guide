@@ -6,7 +6,7 @@
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
-    "description": "snippet for an if statement"
+    "description": "Inserts an if statement. Optionally wraps selected text in `if {}` block."
   },
   "else if": {
     "prefix": "else if",
@@ -15,7 +15,7 @@
       "\t${TM_SELECTED_TEXT}$0",
       "}"
     ],
-    "description": "snippet for else-if"
+    "description": "Inserts an else if block. Optionally wraps selected text in `else if {}` block."
   },
   "else": {
     "prefix": "else",
@@ -24,16 +24,16 @@
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
-    "description": "snippet for else"
+    "description": "Inserts an else block. Optionally wraps selected text in `else {}` block."
   },
   "do": {
     "prefix": "do",
     "body": [
       "do {",
       "\t${TM_SELECTED_TEXT}$0",
-      "} while(${1:0});\n"
+      "} while (${1:0});\n"
     ],
-    "description": "snippet for a do...while loop"
+    "description": "Inserts a do...while loop. Optionally wraps selected text in `do {} while ()`."
   },
   "while": {
     "prefix": "while",
@@ -42,7 +42,7 @@
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
-    "description": "snippet for a while loop"
+    "description": "Inserts a while loop. Optionally wraps selected text in `while () {}`."
   },
   "for": {
     "prefix": "for",
@@ -51,7 +51,7 @@
       "\t${TM_SELECTED_TEXT}$0",
       "}\n"
     ],
-    "description": "snippet for a for loop"
+    "description": "Inserts a for loop. Configures loop variable, condition, and increment. Wrapables."
   },
   "switch": {
     "prefix": "switch",
@@ -66,7 +66,7 @@
       "\t${2}${3:break}};",
       "}\n"
     ],
-    "description": "snippet for a switch statement"
+    "description": "Inserts a switch statement. Optionally uses selected text as expression."
   },
   "case": {
     "prefix": "case",
@@ -75,7 +75,7 @@
       "\t${TM_SELECTED_TEXT}$0",
       "\tbreak;"
     ],
-    "description": "snippet for case (...)"
+    "description": "Inserts a case label and statement. Optionally wraps selected text."
   },
   "enum": {
     "prefix": "enum",
@@ -86,7 +86,7 @@
       "\t${5:k${1:EnumID}_Count}$0",
       "};\n"
     ],
-    "description": "snippet for an enum declaration"
+    "description": "Inserts an enum with name, default value, items, and count value."
   },
   "struct": {
     "prefix": "struct",
@@ -96,7 +96,7 @@
       "\t${4:${TM_SELECTED_TEXT}}$0",
       "};\n"
     ],
-    "description": "snippet for an struct definition"
+    "description": "Inserts a struct with name, member variables. Optionally wrapables."
   },
   "func": {
     "prefix": "func",
@@ -105,14 +105,14 @@
       "\t${5:${TM_SELECTED_TEXT}}$0",
       "}\n"
     ],
-    "description": "snippet for a function definition"
+    "description": "Inserts a function with return type, name, parameters, and body. Wrapables."
   },
   "typedef": {
     "prefix": "typedef",
     "body": [
       "typedef ${1:char} ${2:Byte};$0"
     ],
-    "description": "snippet for a typedef"
+    "description": "Inserts a typedef to create an alias for a type."
   },
   "typedefenum": {
     "prefix": "typedefenum",
@@ -123,7 +123,7 @@
       "\t${5:k${1:EnumAlias}_Count}$0",
       "} ${1:EnumAlias};\n"
     ],
-    "description": "snippet for a typedef enum"
+    "description": "Inserts a typedef enum with name, default value, items, and count."
   },
   "typedefstruct": {
     "prefix": "typedefstruct",
@@ -134,14 +134,14 @@
       "\t${4:${TM_SELECTED_TEXT}}$0",
       "};\n"
     ],
-    "description": "snippet for a typedef struct"
+    "description": "Inserts a typedef struct with name, member variables. Optionally wrapables."
   },
   "typedeffunc": {
     "prefix": "typedeffuncptr",
     "body": [
       "typedef ${1:int} (*${2:FuncAlias})(${3:int}, ${4:int});$0"
     ],
-    "description": "snippet for a typedef function pointer"
+    "description": "Inserts a typedef for a function pointer with return type and args."
   },
   "#extern": {
     "prefix": "#extern",
@@ -156,20 +156,8 @@
       "}",
       "#endif // defined(__cplusplus)\n"
     ],
-    "description": "snippet for C language linking"
+    "description": "Wraps code with extern \"C\" for C++ compatibility when linking with C code."
   },
-  /* "#guard": {
-    "prefix": "#guard",
-    "body": [
-      "#ifndef ${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}",
-      "#define ${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}",
-      "",
-      "${TM_SELECTED_TEXT}$0",
-      "",
-      "#endif // !${TM_FILENAME/^([^\\.]*)\\..*$/${1:/upcase}/}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}"
-    ],
-    "description": "snippet for header include guard"
-  }, */
   "#guard": {
     "prefix": "#guard",
     "body": [
@@ -180,7 +168,7 @@
       "",
       "#endif // !${1:${TM_FILENAME}}"
     ],
-    "description": "snippet for header include guard"
+    "description": "Wraps code with an include guard based on the current file name."
   },
   "#unused": {
     "prefix": "#unused",
@@ -189,7 +177,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // $UNUSED_CODE"
     ],
-    "description": "snippet for #ifndef"
+    "description": "Wraps code in an #ifdef UNUSED_CODE block to enable/disable code."
   },
   "#ifdef": {
     "prefix": "#ifdef",
@@ -198,7 +186,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // $1"
     ],
-    "description": "snippet for #ifdef"
+    "description": "Wraps code in an #ifdef block with a user-specified condition."
   },
   "#ifndef": {
     "prefix": "#ifndef",
@@ -207,7 +195,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // !$1\n"
     ],
-    "description": "snippet for #ifndef"
+    "description": "Wraps code in an #ifndef block with a user-specified condition."
   },
   "#ifdefined": {
     "prefix": "#ifdefined",
@@ -216,7 +204,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // defined($1)"
     ],
-    "description": "snippet for #ifdefined"
+    "description": "Wraps code in an #if defined() block with a user-specified condition."
   },
   "#ifndefined": {
     "prefix": "#ifndefined",
@@ -225,7 +213,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // !defined($1)\n"
     ],
-    "description": "snippet for #ifndefined"
+    "description": "Wraps code in an #if !defined() block with a user-specified condition."
   },
   "#if": {
     "prefix": "#if",
@@ -234,7 +222,7 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // $1"
     ],
-    "description": "snippet for #if"
+    "description": "Wraps code in an #if block with a user-specified condition."
   },
   "#ifn": {
     "prefix": "#ifn",
@@ -243,21 +231,21 @@
       "${TM_SELECTED_TEXT}$0",
       "#endif // !$1\n"
     ],
-    "description": "snippet for #ifn"
+    "description": "Wraps code in an #if block with a negated user-specified condition."
   },
   "#inc<": {
     "prefix": "#inc<",
     "body": [
       "#include <${1:${TM_SELECTED_TEXT}}$0>"
     ],
-    "description": "snippet for #include<...>"
+    "description": "Inserts an #include statement for a system header file."
   },
   "#inc\"": {
     "prefix": "#inc\"",
     "body": [
       "#include \"${1:${TM_SELECTED_TEXT}}$0\""
     ],
-    "description": "snippet for #include\"...\""
+    "description": "Inserts an #include statement for a user header file."
   },
   "#def": {
     "prefix": "#def",
@@ -265,7 +253,7 @@
       "#define $1 $2",
       "$0"
     ],
-    "description": "snippet for #define"
+    "description": "Defines a preprocessor macro with an optional value."
   },
   "//cfoff": {
     "prefix": "//cfoff",
@@ -274,21 +262,21 @@
       "${TM_SELECTED_TEXT}$0",
       "// clang-format on"
     ],
-    "description": "clang-format off ... on"
+    "description": "Wraps selected code in // clang-format off/on comments to disable formatting."
   },
   "//nolt": {
     "prefix": "//nolt",
     "body": [
       "// NOLINT${1:(${2:check-name})$0"
     ],
-    "description": "// NOLINT(...)"
+    "description": "Adds // NOLINT comment to suppress lint warnings on the current line."
   },
   "//noltn": {
     "prefix": "//noltn",
     "body": [
       "// NOLINTNEXTLINE${1:(${2:check-name})$0"
     ],
-    "description": "// NOLINTNEXTLINT(...)"
+    "description": "Adds // NOLINTNEXTLINE comment to suppress lint warnings on the next line."
   },
   "//noltr": {
     "prefix": "//noltr",
@@ -297,7 +285,7 @@
       "${TM_SELECTED_TEXT}$0",
       "// NOLINTEND${1:(${2:check-name})}"
     ],
-    "description": "// NOLINT(...) BEGIN ... END"
+    "description": "Wraps selected code in // NOLINTBEGIN/END comments to suppress lint warnings."
   },
   "#region": {
     "prefix": "#region",
@@ -306,7 +294,7 @@
       "${TM_SELECTED_TEXT}$0",
       "// #endregion // $1\n"
     ],
-    "description": "snippet for #section"
+    "description": "Wraps selected code in // #region comments for code folding and organization."
   },
   "//cmtbox": {
     "prefix": "//cmtbox",
@@ -316,35 +304,35 @@
       " *********************************/",
       "$0"
     ],
-    "description": "cmtbox/**...**/"
+    "description": "Wraps selected text in a /* ... */ comment box for emphasis."
   },
   "//cmtsep*": {
     "prefix": "//cmtsep*",
     "body": [
       "/******** ${TM_SELECTED_TEXT}$1 ********/$0"
     ],
-    "description": "cmtsep/**...**/"
+    "description": "Creates a /*** ... ***/ comment separator line with selected text."
   },
   "//cmtsep-": {
     "prefix": "//cmtsep-",
     "body": [
       "/*------- ${TM_SELECTED_TEXT}$1 -------*/$0"
     ],
-    "description": "cmtsep/*-...-*/"
+    "description": "Creates a /*-- ... --*/ comment separator line with selected text."
   },
   "//sep*": {
     "prefix": "//sep*",
     "body": [
       "/*********************************/$0"
     ],
-    "description": "sep/****/"
+    "description": "Inserts a /******/ comment separator line."
   },
   "//sep-": {
     "prefix": "//sep-",
     "body": [
       "/*-------------------------------*/$0"
     ],
-    "description": "sep/*--*/"
+    "description": "Inserts a /*----*/ comment separator line."
   },
   "#section": {
     "prefix": "#section",
@@ -357,7 +345,7 @@
       "// #endregion // $2",
       "/*------- $1 -------*/\n"
     ],
-    "description": "snippet for #section"
+    "description": "Wraps /.../ cmtsep line and #region around selected text with labels."
   },
   "#headeronly": {
     "prefix": "#headeronly",
@@ -372,7 +360,7 @@
       "// #endregion // $2",
       "/*-------------------------------*/\n"
     ],
-    "description": "snippet for #headeronly"
+    "description": "Wraps /.../ cmtbox and #region around selected text with label."
   },
   "//heading": {
     "prefix": "//heading",
@@ -390,7 +378,7 @@
       " * @copyright ${10:'$'cprt|licn}",
       " */\n"
     ],
-    "description": "snippet for heading comment"
+    "description": "Inserts a C-style doxygen /** ... */ comment block with file info."
   },
   "#header": {
     "prefix": "#header",
@@ -454,7 +442,7 @@
       "",
       "#endif // !${11:${TM_FILENAME}}\n"
     ],
-    "description": "snippet for #header"
+    "description": "Creates a C header file template with common sections. Wraps /.../."
   },
   "#source": {
     "prefix": "#source",
@@ -507,6 +495,6 @@
       "${18:// definitions}",
       "// #endregion // Private_Functions"
     ],
-    "description": "snippet for #source"
+    "description": "Creates a C source file template with common sections. Wraps /.../."
   }
 }

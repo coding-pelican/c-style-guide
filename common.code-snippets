@@ -71,7 +71,7 @@
     "body": [
       "Copyright ${CURRENT_YEAR}. ${1:Name} All rights reserved.$0"
     ],
-    "description": "Add a copyright statement"
+    "description": "Inserts a copyright statement."
   },
   "$licn": {
     // https://muratkaragozgil.medium.com/software-licenses-on-github-which-one-should-you-choose-3d4cfbb6c2f9
@@ -79,6 +79,6 @@
     "body": [
       "Released under the ${1|MIT License,Apache License 2.0,GNU General Public License (GPL) v3,Mozilla Public License 2.0,BSD 3-Clause License|}. See LICENSE file for details.$0"
     ],
-    "description": "Add a software license notice"
-  }
+    "description": "Inserts a software license notice."
+  },
 }
