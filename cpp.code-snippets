@@ -1,10 +1,10 @@
-﻿{
+{
   "if": {
     "prefix": "if",
     "body": [
       "if ($1) {",
       "\t${TM_SELECTED_TEXT}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts an if statement. Optionally wraps selected text in `if {}` block."
   },
@@ -22,7 +22,7 @@
     "body": [
       "else {",
       "\t${TM_SELECTED_TEXT}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts an else block. Optionally wraps selected text in `else {}` block."
   },
@@ -31,7 +31,7 @@
     "body": [
       "do {",
       "\t${TM_SELECTED_TEXT}$0",
-      "} while (${1:false});\n"
+      "} while (${1:false});"
     ],
     "description": "Inserts a do...while loop. Optionally wraps selected text in `do {} while ()`."
   },
@@ -40,7 +40,7 @@
     "body": [
       "while (${1:true}) {",
       "\t${TM_SELECTED_TEXT}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts a while loop. Optionally wraps selected text in `while () {}`."
   },
@@ -49,7 +49,7 @@
     "body": [
       "for (${1:${2|int,size_t,auto|} ${3:index} = ${4:0}}; ${5:$3 ${6|<,>,<=,>=,==,!=|} ${7:length}}; ${8:${9|++,--|}$3}) {",
       "\t${TM_SELECTED_TEXT}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts a for loop. Configures loop variable, condition, and increment. Wrapables."
   },
@@ -60,11 +60,11 @@
       "case $4:",
       "\t$0",
       "\tbreak;",
-      "\n",
-      "\n",
+      "",
+      "",
       "default:",
       "\t${2}${3:break}};",
-      "}\n"
+      "}"
     ],
     "description": "Inserts a switch statement. Optionally uses selected text as expression."
   },
@@ -84,7 +84,7 @@
       "\t${2:e${1:EnumID}_None} = ${3:0},",
       "\t${4:e${1:EnumID}_Item},",
       "\t${5:k${1:EnumID}_Count}$0",
-      "};\n"
+      "};"
     ],
     "description": "Inserts an enum with name, default value, items, and count value."
   },
@@ -94,7 +94,7 @@
       "struct ${1:StructID} {",
       "\t${2:int} ${3:structMember};",
       "\t${4:${TM_SELECTED_TEXT}}$0",
-      "};\n"
+      "};"
     ],
     "description": "Inserts a struct with name, member variables. Optionally wrapables."
   },
@@ -103,7 +103,7 @@
     "body": [
       "${6:void} ${1:FuncID}(${2:${3:int} ${4:arg}$5}) {",
       "\t${7:${TM_SELECTED_TEXT}}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts a function with return type, name, parameters, and body. Wrapables."
   },
@@ -121,7 +121,7 @@
       "\t${2:e${1:EnumAlias}_None} = ${3:0},",
       "\t${4:e${1:EnumAlias}_Item},",
       "\t${5:k${1:EnumAlias}_Count}$0",
-      "} ${1:EnumAlias};\n"
+      "} ${1:EnumAlias};"
     ],
     "description": "Inserts a typedef enum with name, default value, items, and count."
   },
@@ -132,7 +132,7 @@
       "struct ${1:StructAlias} {",
       "\t${2:int} ${3:structMember};",
       "\t${4:${TM_SELECTED_TEXT}}$0",
-      "};\n"
+      "};"
     ],
     "description": "Inserts a typedef struct with name, member variables. Optionally wrapables."
   },
@@ -154,7 +154,7 @@
       "",
       "#if defined(__cplusplus)",
       "}",
-      "#endif // defined(__cplusplus)\n"
+      "#endif // defined(__cplusplus)"
     ],
     "description": "Wraps code with extern \"C\" for C++ compatibility when linking with C code."
   },
@@ -193,7 +193,7 @@
     "body": [
       "#ifndef $1",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // !$1\n"
+      "#endif // !$1"
     ],
     "description": "Wraps code in an #ifndef block with a user-specified condition."
   },
@@ -211,7 +211,7 @@
     "body": [
       "#if !defined($1)",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // !defined($1)\n"
+      "#endif // !defined($1)"
     ],
     "description": "Wraps code in an #if !defined() block with a user-specified condition."
   },
@@ -229,7 +229,7 @@
     "body": [
       "#if !$1",
       "${TM_SELECTED_TEXT}$0",
-      "#endif // !$1\n"
+      "#endif // !$1"
     ],
     "description": "Wraps code in an #if block with a negated user-specified condition."
   },
@@ -292,7 +292,7 @@
     "body": [
       "// #region $1",
       "${TM_SELECTED_TEXT}$0",
-      "// #endregion // $1\n"
+      "// #endregion // $1"
     ],
     "description": "Wraps selected code in // #region comments for code folding and organization."
   },
@@ -343,7 +343,7 @@
       "${TM_SELECTED_TEXT}",
       "$0",
       "// #endregion // $2",
-      "/*------- $1 -------*/\n"
+      "/*------- $1 -------*/"
     ],
     "description": "Wraps /.../ cmtsep line and #region around selected text with labels."
   },
@@ -358,7 +358,7 @@
       "${TM_SELECTED_TEXT}",
       "$0",
       "// #endregion // $2",
-      "/*-------------------------------*/\n"
+      "/*-------------------------------*/"
     ],
     "description": "Wraps /.../ cmtbox and #region around selected text with label."
   },
@@ -367,7 +367,7 @@
     "body": [
       "/**",
       " * @file ${TM_FILENAME}",
-      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} <${5:email.address@example.com}>",
       " *",
       " * @brief $6",
       " * @details $7",
@@ -376,7 +376,7 @@
       " * @date ${9:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
       " *",
       " * @copyright ${10:'$'cprt|licn}",
-      " */\n"
+      " */"
     ],
     "description": "Inserts a C-style doxygen /** ... */ comment block with file info."
   },
@@ -385,7 +385,7 @@
     "body": [
       "/**",
       " * @file ${TM_FILENAME}",
-      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} <${5:email.address@example.com}>",
       " *",
       " * @brief $6",
       " * @details $7",
@@ -410,37 +410,37 @@
       "// #endregion // Header_File_Inclusions",
       "",
       "// #region Pre-Processor_Definitions",
-      "$9",
+      "$13",
       "// #endregion // Pre-Processor_Definitions",
       "",
       "// #region Forward_Declarations",
-      "${13:// when NEEDED in this header file}",
+      "${14:// when NEEDED in this header file}",
       "// #endregion // Forward_Declarations",
       "",
       "",
       "// #region Public_Types",
-      "${14:// definitions: const, enum, struct, ...}",
+      "${15:// definitions: const, enum, struct, ...}",
       "// #endregion // Public_Types",
       "",
       "// #region Public_Data",
-      "${15:// declarations: global, extern, static with extern}",
+      "${16:// declarations: global, extern, static with extern}",
       "// #endregion // Public_Data",
       "",
       "",
       "// #region Inline_Functions",
-      "${16:// definitions}",
+      "${17:// definitions}",
       "// #endregion // Inline_Functions",
       "",
       "// #region Public_Function_Prototypes",
-      "${17:// declarations}",
+      "${18:// declarations}",
       "// #endregion // Public_Function_Prototypes",
       "",
       "",
-      "#ifdef defined(__cplusplus)",
+      "#if defined(__cplusplus)",
       "}",
       "#endif // defined(__cplusplus)",
       "",
-      "#endif // !${11:${TM_FILENAME}}\n"
+      "#endif // !${11:${TM_FILENAME}}"
     ],
     "description": "Creates a C header file template with common sections. Wraps /.../."
   },
@@ -449,7 +449,7 @@
     "body": [
       "/**",
       " * @file ${TM_FILENAME}",
-      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} (${5:email.address@example.com})",
+      " * @author ${1:FirstName} ${2:LastName}${3:(${4:NickName})} <${5:email.address@example.com}>",
       " *",
       " * @brief $6",
       " * @details $7",
@@ -504,7 +504,7 @@
       "\t$0",
       "\t",
       "\treturn 0;",
-      "}\n"
+      "}"
     ],
     "description": "Generates a main function declaration with command line arguments."
   },
@@ -529,7 +529,7 @@
     "body": [
       "for (${1|const auto&,auto&,auto|} $2 : $3) {",
       "\t${TM_SELECTED_TEXT}$0",
-      "}\n"
+      "}"
     ],
     "description": "Inserts a range-based for loop. Optionally wraps selected text in loop."
   },
@@ -540,7 +540,7 @@
       "\t${1:${TM_SELECTED_TEXT}}$2",
       "} catch (const std::exception& $3) {",
       "\t$0",
-      "}\n"
+      "}"
     ],
     "description": "Wraps the selected code in a try-catch block."
   },
@@ -549,7 +549,7 @@
     "body": [
       "class $1 ${2:: ${3:virtual} ${4|public,protected,private|} ${5:base}} {",
       "\t${6:${TM_SELECTED_TEXT}}$0",
-      "};\n"
+      "};"
     ],
     "description": "Generates a class declaration with inheritance options."
   },
