@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file foo.h
  * @author Gyeongtae Kim(dev-dasae) (codingpelican@gmail.com)
  *

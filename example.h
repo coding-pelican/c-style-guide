@@ -1,4 +1,4 @@
-﻿// clang-format off
+// clang-format off
 
 /**
  * @file example.h

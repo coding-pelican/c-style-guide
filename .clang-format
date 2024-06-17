@@ -1,4 +1,4 @@
-﻿# clang-format configurator v2 https://clang-format-configurator.site/
+# clang-format configurator v2 https://clang-format-configurator.site/
 # see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 ---
 BasedOnStyle: LLVM

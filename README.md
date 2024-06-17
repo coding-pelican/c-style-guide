@@ -1,4 +1,4 @@
-﻿# C Style Guide
+# C Style Guide
 
 Guidelines for modern C coding, including style conventions and layout organization.
 
